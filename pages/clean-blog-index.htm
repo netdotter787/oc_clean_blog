@@ -1,0 +1,51 @@
+title = "Netdotter Blog"
+url = "/"
+layout = "mainLayout"
+description = "A Clean Blog Theme by Start Bootstrap"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/blog-category"
+postPage = "blog/blog-post"
+==
+<!-- THE SAME "/" PAGE ... -->
+
+
+
+<!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('{{ 'assets/img/home-bg.jpg'|theme }}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Netdotter</h1>
+                        <hr class="small">
+                        <span class="subheading">A better smart blog</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-10 col-md-offset-1">
+                {% component 'blogPosts' %}
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="/blog">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr>

@@ -1,0 +1,43 @@
+title = "Blog"
+url = "/blog"
+layout = "mainLayout"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = ":slug"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/blog-category"
+postPage = "blog/blog-post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/blog-category"
+==
+<header class="intro-header" style="background-image: url('{{ 'assets/img/home-bg.jpg'|theme }}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>{{ this.page.title }}</h1>
+                    <hr class="small">
+                    <span class="subheading">{{ this.page.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+            {% component 'blogPosts' %}
+        </div>
+        <div class="col-lg-3">
+            {% component 'blogCategories' %}
+        </div>
+    </div>
+</div>
